@@ -6,31 +6,86 @@ import java.awt.geom.Ellipse2D;
  * 
  * @author Nico Orthmann, u35249
  * 
- * @Version 1.0
+ * @Version 1.1.0
  * 
  * Programm für Softwaretechnik
  * draws circles when you double click
- * after two circles empies Window
+ * after two circles empties Window
+ * menubar with the possibility too change Backgroundcolor
  *
  */
 
-    public class fenster extends Frame implements MouseListener{
+    public class fenster extends Frame implements MouseListener, ActionListener{
     	public int x; //X-Coordinate
     	public int y; //Y-Coordinate
     	public int i = 0; //Counter of circle
     	
-    	public static void main(String[] args) {  
-            new fenster(); //opens Window
+    	//Menubar
+    	MenuBar mb=new MenuBar();  
+        Menu menu=new Menu("Hintergrundfarbe");  
+        MenuItem red = new MenuItem("Rot");  
+        MenuItem yellow = new MenuItem("Gelb");  
+        MenuItem green = new MenuItem("Grün");  
+        MenuItem blue = new MenuItem("Blau");  
+        MenuItem white = new MenuItem("Weiß");
+    	 
+        
+        
+    	public static void main(String[] args) {
+    		 
+            new fenster();
+            //opens Window
         } 
     	
     	
-        fenster(){  
-            addMouseListener(this);  
-              
-            setSize(500,500);  
+        public fenster(){ 
+        	//Window
+        	setSize(500,500);  
             setLayout(null);  
-            setVisible(true);  
+            setVisible(true); 
+        	
+            
+        	addMouseListener(this);
+        	
+        	//rest of menubar
+        	menu.add(red);  
+            menu.add(yellow);  
+            menu.add(green);  
+            menu.add(blue);  
+            menu.add(white);    
+            mb.add(menu);  
+            setMenuBar(mb);
+            
+            //actionlistener for menubar
+            red.addActionListener(this);
+            yellow.addActionListener(this);
+            green.addActionListener(this);
+            blue.addActionListener(this);
+            white.addActionListener(this);
+        	
+              
         } 
+        
+        //change of Backgroundcolor
+        public void actionPerformed(ActionEvent a) {
+            Object ob = a.getSource();
+           
+            if(ob == red) 
+            	setBackground(Color.RED);
+            
+            if(ob == yellow) 
+            	setBackground(Color.RED);
+            
+            if(ob == green) 
+            	setBackground(Color.GREEN);
+               
+            if(ob == blue) 
+            	setBackground(Color.BLUE);
+            	
+            if(ob == white) 
+            	setBackground(Color.WHITE);
+        }
+       
         
         
         //draws circle
