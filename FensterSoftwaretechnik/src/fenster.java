@@ -1,6 +1,7 @@
 import java.awt.*;  
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 /**
  * 
@@ -35,12 +36,12 @@ import java.awt.geom.Ellipse2D;
         
         //Methode zum zeichnen der Kreise
         public void paint(Graphics g) {
-        	Ellipse2D ellipse2D;
+        	Rectangle2D rectangle2D;
         	
-        	ellipse2D = new Ellipse2D.Float(x,y,10.0F,10.0F);
+        	rectangle2D = new Rectangle2D.Float(x,y,10.0F,10.0F);
         	
         	Graphics2D gd2 = (Graphics2D)g;
-        	gd2.draw(ellipse2D);
+        	gd2.draw(rectangle2D);
         }
         
         //Methode die das Klicken erkennz
