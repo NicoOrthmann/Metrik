@@ -9,18 +9,18 @@ import java.awt.geom.Ellipse2D;
  * @Version 1.0
  * 
  * Programm für Softwaretechnik
- * Fenster in dem durch Doppelklick ein kreis gezeichnet wird
- * und bei dritten Doppelklick das Fenster geleert wird
+ * draws circles when you double click
+ * after two circles empies Window
  *
  */
 
     public class fenster extends Frame implements MouseListener{
-    	public int x; //X-Koordinate beim Klicken
-    	public int y; //Y-Koordinate beim Klicken
-    	public int i = 0; //Counter der Kreise
+    	public int x; //X-Coordinate
+    	public int y; //Y-Coordinate
+    	public int i = 0; //Counter of circle
     	
     	public static void main(String[] args) {  
-            new fenster(); //Fenster wird geöffnet 
+            new fenster(); //opens Window
         } 
     	
     	
@@ -33,7 +33,7 @@ import java.awt.geom.Ellipse2D;
         } 
         
         
-        //Methode zum zeichnen der Kreise
+        //draws circle
         public void paint(Graphics g) {
         	Ellipse2D ellipse2D;
         	
@@ -43,13 +43,13 @@ import java.awt.geom.Ellipse2D;
         	gd2.draw(ellipse2D);
         }
         
-        //Methode die das Klicken erkennz
+        //reconizes double click
         public void mouseClicked(MouseEvent e) {
         	
-        	//startet wenn Doppelgeklicket wird
+        	//starts when double click
         	if (e.getClickCount() == 2) { 
         		
-        		//wenn weniger als zwei Kreise da sind wird ein neuer gezeichnet
+        		//draws when there are less than two circle
         		if(i<2) {
         			x = e.getX();
         			y = e.getY();
@@ -59,7 +59,7 @@ import java.awt.geom.Ellipse2D;
         		}else {
         			i=0;
         			x=y=0;
-        			//leeren der Fensters
+        			//empties window
         			update(getGraphics());
         		} 
        }
