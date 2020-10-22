@@ -15,7 +15,7 @@ import java.awt.geom.Ellipse2D;
  *
  */
 
-    public class fenster extends Frame implements MouseListener, ActionListener{
+    public class fenster extends Frame implements MouseListener, ActionListener, WindowListener{
     	public int x; //X-Coordinate
     	public int y; //Y-Coordinate
     	public int i = 0; //Counter of circle
@@ -44,7 +44,7 @@ import java.awt.geom.Ellipse2D;
             setLayout(null);  
             setVisible(true); 
         	
-            
+            addWindowListener(this);
         	addMouseListener(this);
         	
         	//rest of menubar
@@ -123,6 +123,53 @@ import java.awt.geom.Ellipse2D;
        public void mouseEntered(MouseEvent e) {}  
        public void mouseExited(MouseEvent e) {}  
        public void mousePressed(MouseEvent e) {}  
-       public void mouseReleased(MouseEvent e) {}  
+       public void mouseReleased(MouseEvent e) {}
+
+
+	@Override
+	public void windowActivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		dispose();
+        System.exit(0);	
+	}
+
+	@Override
+	public void windowClosed(WindowEvent arg0) {}
+
+
+	
+
+
+	@Override
+	public void windowDeactivated(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowDeiconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowIconified(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void windowOpened(WindowEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}  
              
 }  
