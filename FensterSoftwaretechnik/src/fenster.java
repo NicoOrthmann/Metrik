@@ -41,10 +41,12 @@ import java.awt.geom.Ellipse2D;
         	
         	Graphics2D gd2 = (Graphics2D)g;
         	gd2.draw(ellipse2D);
+        	gd2.drawString("x: "+x+" y: "+ y,x-5,y-5);
         }
         
         //reconizes double click
         public void mouseClicked(MouseEvent e) {
+        	
         	
         	//starts when double click
         	if (e.getClickCount() == 2) { 
