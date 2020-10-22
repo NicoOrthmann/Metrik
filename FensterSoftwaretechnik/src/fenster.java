@@ -9,7 +9,7 @@ import java.awt.geom.Ellipse2D;
  * @Version 1.0
  * 
  * Programm für Softwaretechnik
- * Fenster in dem durch Doppelklick ein kris gezeichnet wird
+ * Fenster in dem durch Doppelklick ein kreis gezeichnet wird
  * und bei dritten Doppelklick das Fenster geleert wird
  *
  */
