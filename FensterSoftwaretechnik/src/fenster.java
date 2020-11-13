@@ -1,6 +1,7 @@
 import java.awt.*;  
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 /**
  * 
@@ -72,6 +73,7 @@ import java.awt.geom.Ellipse2D;
             green.addActionListener(this);
             blue.addActionListener(this);
             white.addActionListener(this);
+            
             kreis.addActionListener(this);
             quadrat.addActionListener(this);
         	
@@ -99,7 +101,7 @@ import java.awt.geom.Ellipse2D;
             
             if(ob == kreis) 
             	f = true;
-            if(ob == red) 
+            if(ob == quadrat) 
             	f = false;
         }
        
@@ -108,6 +110,7 @@ import java.awt.geom.Ellipse2D;
         //draws circle
         public void paint(Graphics g) {
         	Ellipse2D ellipse2D;
+        	Rectangle2D rectangle2D;
         	Graphics2D gd2 = (Graphics2D)g;
         	
         	if (f) {
@@ -115,7 +118,9 @@ import java.awt.geom.Ellipse2D;
         		gd2.draw(ellipse2D);
         		gd2.drawString("x: "+x+" y: "+ y,x-5,y-5);
         	}else {
-        		
+            	rectangle2D = new Rectangle2D.Float(x,y,10.0F,10.0F);
+            	gd2.draw(rectangle2D);
+            	gd2.drawString("x: "+x+" y: "+ y,x-5,y-5);
         	}
         	
         }
