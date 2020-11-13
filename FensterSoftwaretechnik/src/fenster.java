@@ -19,6 +19,7 @@ import java.awt.geom.Ellipse2D;
     	public int x; //X-Coordinate
     	public int y; //Y-Coordinate
     	public int i = 0; //Counter of circle
+    	public boolean f = true;
     	
     	//Menubar
     	MenuBar mb=new MenuBar();  
@@ -29,6 +30,10 @@ import java.awt.geom.Ellipse2D;
         MenuItem blue = new MenuItem("Blau");  
         MenuItem white = new MenuItem("Weiﬂ");
     	 
+        Menu form=new Menu("Form");
+        MenuItem quadrat = new MenuItem("Quadrat");
+        MenuItem kreis = new MenuItem("Kreis");
+        
         
         
     	public static void main(String[] args) {
@@ -54,6 +59,11 @@ import java.awt.geom.Ellipse2D;
             menu.add(blue);  
             menu.add(white);    
             mb.add(menu);  
+            
+            form.add(kreis);
+            form.add(quadrat);
+            mb.add(form);
+            
             setMenuBar(mb);
             
             //actionlistener for menubar
@@ -62,6 +72,8 @@ import java.awt.geom.Ellipse2D;
             green.addActionListener(this);
             blue.addActionListener(this);
             white.addActionListener(this);
+            kreis.addActionListener(this);
+            quadrat.addActionListener(this);
         	
               
         } 
@@ -74,7 +86,7 @@ import java.awt.geom.Ellipse2D;
             	setBackground(Color.RED);
             
             if(ob == yellow) 
-            	setBackground(Color.RED);
+            	setBackground(Color.YELLOW);
             
             if(ob == green) 
             	setBackground(Color.GREEN);
@@ -84,6 +96,11 @@ import java.awt.geom.Ellipse2D;
             	
             if(ob == white) 
             	setBackground(Color.WHITE);
+            
+            if(ob == kreis) 
+            	f = true;
+            if(ob == red) 
+            	f = false;
         }
        
         
@@ -91,11 +108,16 @@ import java.awt.geom.Ellipse2D;
         //draws circle
         public void paint(Graphics g) {
         	Ellipse2D ellipse2D;
-        	
-        	ellipse2D = new Ellipse2D.Float(x,y,10.0F,10.0F);
-        	
         	Graphics2D gd2 = (Graphics2D)g;
-        	gd2.draw(ellipse2D);
+        	
+        	if (f) {
+        		ellipse2D = new Ellipse2D.Float(x,y,10.0F,10.0F);
+        		gd2.draw(ellipse2D);
+        		gd2.drawString("x: "+x+" y: "+ y,x-5,y-5);
+        	}else {
+        		
+        	}
+        	
         }
         
         //reconizes double click
@@ -128,48 +150,21 @@ import java.awt.geom.Ellipse2D;
 
 	@Override
 	public void windowActivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void windowClosing(WindowEvent arg0) {
 		// TODO Auto-generated method stub
 		dispose();
-        System.exit(0);	
-	}
-
+        System.exit(0);	}
 	@Override
 	public void windowClosed(WindowEvent arg0) {}
-
-
-	
-
-
 	@Override
-	public void windowDeactivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	public void windowDeactivated(WindowEvent arg0) {}
 	@Override
-	public void windowDeiconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	public void windowDeiconified(WindowEvent arg0) {}
 	@Override
-	public void windowIconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	public void windowIconified(WindowEvent arg0) {}
 	@Override
-	public void windowOpened(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}  
+	public void windowOpened(WindowEvent arg0) {}  
              
 }  
